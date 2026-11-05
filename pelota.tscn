@@ -1,0 +1,24 @@
+[gd_scene format=3]
+
+[sub_resource type="SphereShape3D" id="Forma"]
+radius = 0.3
+
+[sub_resource type="SphereMesh" id="Malla"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="StandardMaterial3D" id="Mat"]
+albedo_color = Color(1, 0.75, 0.1, 1)
+
+[node name="Pelota" type="RigidBody3D" groups=["pelotas"]]
+collision_layer = 2
+collision_mask = 3
+mass = 1.0
+linear_damp_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("Forma")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("Malla")
+surface_material_override/0 = SubResource("Mat")
